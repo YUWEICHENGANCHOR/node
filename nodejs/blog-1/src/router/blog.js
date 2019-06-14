@@ -33,7 +33,7 @@ const handleBlogRouter = (req, res) =>{
     };
 
     //刪除博客詳情
-    if(method === 'POST ' && path ==='/api/blog/delete'){
+    if(method === 'POST ' && path ==='/api/blog/del'){
         return {
             msg: 'This is delete blog interface'
         }
