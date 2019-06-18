@@ -1,3 +1,4 @@
+'use strict';
 const handleBlogRouter = (req, res) =>{
     const method = req.method; //GET POST
     const url = req.url;
@@ -19,21 +20,21 @@ const handleBlogRouter = (req, res) =>{
     };
 
     //新建博客詳情
-    if(method === 'POST ' && path ==='/api/blog/new'){
+    if(method === 'POST' && path ==='/api/blog/new'){
         return {
             msg: 'This is new blog interface'
         }
     };
 
     //更新博客詳情
-    if(method === 'POST ' && path ==='/api/blog/update'){
+    if(method === 'POST' && path ==='/api/blog/update'){
         return {
             msg: 'This is update blog interface'
         }
     };
 
     //刪除博客詳情
-    if(method === 'POST ' && path ==='/api/blog/del'){
+    if(method === 'POST' && path ==='/api/blog/del'){
         return {
             msg: 'This is delete blog interface'
         }
