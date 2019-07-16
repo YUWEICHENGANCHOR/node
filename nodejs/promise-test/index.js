@@ -49,9 +49,15 @@ function getFileContent(fileName){
     })
     return promise;
 }
-//.then 把a.json文件打印出來。getFileContent('a.json')是個promise,然後是.then方法
+//.then 把a.json文件打印出來。getFileContent('a.json')是個promise對象,然後是.then也是個promise對象
+//.then(aData => {
+//    console.log('a.json', aData);
+//    return getFileContent(aData.next);
+//})
+//是個對象
 getFileContent('a.json').then(aData => {
     console.log('a.json', aData);
+    //return 一個promise對象(getFileContent)
     return getFileContent(aData.next);
 }).then(bData =>{
     console.log('b.json', bData);
