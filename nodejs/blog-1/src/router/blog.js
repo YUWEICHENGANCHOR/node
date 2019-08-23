@@ -1,6 +1,9 @@
 'use strict';
 //對象
-const { getList, getDetail } = require('../controller/blog');
+const { 
+    getList, 
+    getDetail, 
+    newBlog } = require('../controller/blog');
 const { SuccessModel, ErrorModel } = require('../model/resModel');
 
 const handleBlogRouter = (req, res) => {
@@ -25,9 +28,10 @@ const handleBlogRouter = (req, res) => {
 
     //新建博客詳情
     if(method === 'POST' && req.path ==='/api/blog/new'){
-        return {
-            msg: 'This is new blog interface'
-        }
+        
+        //返回的是對象
+        const data = newBlog(blogData);
+        return new SuccessModel(data);
     };
 
     //更新博客詳情
