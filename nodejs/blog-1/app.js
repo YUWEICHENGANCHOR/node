@@ -4,6 +4,7 @@ const handleBlogRouter = require('./src/router/blog');
 const handleUserRouter = require('./src/router/user');
 
 //使用promise處理post data
+
 const getPostData = (req) => {
     const promise = new Promise((resolve, reject) => {
         //若不是空
