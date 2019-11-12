@@ -30,7 +30,7 @@ const serverHandle = (req, res) => {
     req.path = url.split('?')[0];
 
     //解析query
-    req.query = querystring.parse(url.split('?'[0]));
+    req.query = querystring.parse(url.split('?'[1]));
 
     //處理 blog 路由
     const blogData = handleBlogRouter(req, res);

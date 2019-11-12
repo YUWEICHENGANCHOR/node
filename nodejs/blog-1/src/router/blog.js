@@ -1,10 +1,16 @@
 'use strict';
 //對象
-const { getList, getDetail } = require('../controller/blog');
+const { getList,
+        getDetail, 
+        newBlog,
+        updateBlog,
+        delBolg} = require('../controller/blog');
 const { SuccessModel, ErrorModel } = require('../model/resModel');
 
 const handleBlogRouter = (req, res) => {
     const method = req.method; //GET POST
+        const data = newBlog(req.bod);
+        const id = req.query.id;
     
     //獲取博客
     if(method === 'GET' && req.path === '/api/blog/list'){
@@ -18,30 +24,36 @@ const handleBlogRouter = (req, res) => {
 
     //獲取博客詳情
     if(method === 'GET' && req.path ==='/api/blog/detail'){
-        const id = req.query.id;
+        
         const data = getDetail(id);
         return new SuccessModel(data);
     };
 
     //新建博客詳情
     if(method === 'POST' && req.path ==='/api/blog/new'){
-        return {
-            msg: 'This is new blog interface'
-        }
+       const data = newBlog(req.body);
+        return new SuccessModel(data);
+        
     };
 
     //更新博客詳情
     if(method === 'POST' && req.path ==='/api/blog/update'){
-        return {
-            msg: 'This is update blog interface'
+        const result = updateBlog(id, req.body);
+        if(result){
+            return new SuccessModel();
+        } else {
+            return new ErrorModel('更新博客失敗');
         }
     };
 
     //刪除博客詳情
     if(method === 'POST' && req.path ==='/api/blog/del'){
-        return {
-            msg: 'This is delete blog interface'
-        }
+       const result = delBolg(id);
+       if(result){
+        return new SuccessModel();
+       } else {
+            return new ErrorModel('刪除博客失敗');
+       }
     };
 }
 module.exports = handleBlogRouter;
