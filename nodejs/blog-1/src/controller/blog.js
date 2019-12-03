@@ -7,7 +7,7 @@ const getList = (auth, keyword) => {
             title: 'Title A',
             content: 'Content B',
             creatTime: 1545510491112,
-            author: 'Anchor1'
+            author: 'Anchor1 '
         },
         {
             id: 1,
