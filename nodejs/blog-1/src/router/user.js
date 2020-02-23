@@ -2,7 +2,7 @@
 
 const { loginCheck } = require('../controller/user');
 const { SuccessModel, ErrorModel } = require('../model/resModel');
-
+var a = 0;
 
 
 
