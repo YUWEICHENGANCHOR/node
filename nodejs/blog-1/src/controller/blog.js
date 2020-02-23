@@ -1,22 +1,19 @@
 'use strict'
+const { exec } = require('../db/mysql');
+
 const getList = (auth, keyword) => {
-    //先返回假數據（格式正確）
-    return[
-        {
-            id: 1,
-            title: 'Title A',
-            content: 'Content B',
-            creatTime: 1545510491112,
-            author: 'Anchor1'
-        },
-        {
-            id: 1,
-            title: 'Title B',
-            content: 'Content B',
-            creatTime: 1545512456655,
-            author: 'Anchor2'
-        }
-    ]
+    //1=1 是永遠成立 但沒有1=1的話，萬一author keyword都沒有值就會報錯，有得話也沒問題
+    let sql = `select * from blogs where 1=1 `;
+    if(author){
+        sql += `and author=${anthor}`
+    }
+    if(keyword){
+        sql += `and title like '%${keyword}%' `;
+    }
+    sql += `order by createtime desc; `
+    
+    //返回promise
+    return exec(sql);
 } 
 
 

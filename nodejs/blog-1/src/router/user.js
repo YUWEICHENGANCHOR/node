@@ -1,6 +1,6 @@
 'use strict';
 
-const { loginCheck } = require('../controller/user').default;
+const { loginCheck } = require('../controller/user');
 const { SuccessModel, ErrorModel } = require('../model/resModel');
 
 
