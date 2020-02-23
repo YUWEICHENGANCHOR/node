@@ -2,7 +2,8 @@
 
 const { loginCheck } = require('../controller/user').default;
 const { SuccessModel, ErrorModel } = require('../model/resModel');
-var a = 0;
+
+
 
 
 const handleUserRouter = (req, res) => {
